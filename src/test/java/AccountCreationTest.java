@@ -44,7 +44,7 @@ public class AccountCreationTest {
     }
 
     @Test
-    public void signIn(){
+    public void signIn() {
         Faker faker = new Faker();
         // Go to http://automationpractice.com/index.php
         driver.get("http://automationpractice.com/index.php");
@@ -64,8 +64,11 @@ public class AccountCreationTest {
         //Verify the Text : CREATE AN ACCOUNT
 //        wait.until(ExpectedConditions.urlToBe("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation"));
 
-        WebElement header1 = driver.findElement(By.tagName("h1"));
-        // WebElement header1 = driver.findElement(By.cssSelector("#noSlide > h1"));
+        //WebElement header1 = driver.findElement(By.tagName("h1"));
+        WebElement header1 = driver.findElement(By.cssSelector("#noSlide > h1"));
+        System.out.println(header1.getText());                     // AUTHENTICATION
+        System.out.println(header1.getAttribute("innerHTML"));  // Authentication
+        System.out.println(header1.getAttribute("value"));      // null
         Assert.assertEquals(header1.getText(),"CREATE AN ACCOUNT");
 
         // Verify the Text : YOUR PERSONAL INFORMATION
